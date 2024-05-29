@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/canvasPOC/canvas-camera-app/static/css/main.f855e6bc.css",
-    "main.js": "/canvasPOC/canvas-camera-app/static/js/main.ae53159f.js",
-    "static/js/453.1ebecf48.chunk.js": "/canvasPOC/canvas-camera-app/static/js/453.1ebecf48.chunk.js",
-    "index.html": "/canvasPOC/canvas-camera-app/index.html",
-    "main.f855e6bc.css.map": "/canvasPOC/canvas-camera-app/static/css/main.f855e6bc.css.map",
-    "main.ae53159f.js.map": "/canvasPOC/canvas-camera-app/static/js/main.ae53159f.js.map",
-    "453.1ebecf48.chunk.js.map": "/canvasPOC/canvas-camera-app/static/js/453.1ebecf48.chunk.js.map"
+    "main.css": "/canvasPOC/static/css/main.f855e6bc.css",
+    "main.js": "/canvasPOC/static/js/main.7d27f237.js",
+    "static/js/453.1ebecf48.chunk.js": "/canvasPOC/static/js/453.1ebecf48.chunk.js",
+    "index.html": "/canvasPOC/index.html",
+    "main.f855e6bc.css.map": "/canvasPOC/static/css/main.f855e6bc.css.map",
+    "main.7d27f237.js.map": "/canvasPOC/static/js/main.7d27f237.js.map",
+    "453.1ebecf48.chunk.js.map": "/canvasPOC/static/js/453.1ebecf48.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.ae53159f.js"
+    "static/js/main.7d27f237.js"
   ]
 }
