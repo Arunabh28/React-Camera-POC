@@ -1,27 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import CameraComponent from '../CameraComponent';
-
-function Home({ images, onCapture, generatePDF }) {
+import Card from "../Component/Card";
+function HomePage() {
   return (
     <div>
-      <h1>Camera App</h1>
-      <CameraComponent onCapture={onCapture} />
-      <div className="image-container">
-        {images.map((image, index) => (
-          <div key={index} className="image-wrapper">
-            <img
-              src={image}
-              alt={`Capture ${index}`}
-              className="captured-image"
-            />
-          </div>
-        ))}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Card to="/camera" title="Camera View" />
+        <Card to="/viewdoc" title="View Document" />
       </div>
-      <button onClick={generatePDF}>Generate PDF</button>
-      <Link to="/pdfview"><button>View PDF</button></Link>
     </div>
   );
 }
-
-export default Home;
+export default HomePage
