@@ -1,12 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Card({ to, title }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(to); // Navigate to the specified 'to' route
+  };
+
   return (
-    <div style={{ margin: '10px', padding: '20px', border: '1px solid black', borderRadius: '5px', width: '200px' }}>
-      <Link to={to} style={{ textDecoration: 'none', color: 'black' }}>
-        <h3>{title}</h3>
-      </Link>
+    <div
+      style={{
+        margin: '10px',
+        padding: '20px',
+        border: '1px solid black',
+        borderRadius: '5px',
+        width: '200px',
+        cursor: 'pointer', // Change cursor to indicate it's clickable
+      }}
+      onClick={handleClick} // Handle click event on the whole card
+    >
+      <h3>{title}</h3>
     </div>
   );
 }

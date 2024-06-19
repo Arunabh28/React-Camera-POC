@@ -1,6 +1,6 @@
-// CameraComponent.js
-import React, { useState,useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
+import './CameraComponent.css'; // Import CSS for styling
 
 const CameraComponent = ({ onCapture }) => {
   const webcamRef = useRef(null);
@@ -17,15 +17,21 @@ const CameraComponent = ({ onCapture }) => {
   };
 
   return (
-    <>
+    <div className="camera-component">
       {cameraOpen ? (
         <>
           <Webcam
             audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
+            className="webcam"
           />
-          <button onClick={capture}>Capture</button>
+          <div>
+          <button className="capture-button" onClick={capture}>
+            Capture
+          </button>
+          </div>
+          
         </>
       ) : (
         <>
@@ -33,7 +39,7 @@ const CameraComponent = ({ onCapture }) => {
           <button onClick={restartCamera}>Take Another Snapshot</button>
         </>
       )}
-    </>
+    </div>
   );
 };
 

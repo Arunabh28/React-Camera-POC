@@ -1,0 +1,27 @@
+.camera-app-container {
+    max-width: 800px; /* Example maximum width */
+    margin: 0 auto; /* Center align the container */
+    padding: 20px;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .image-wrapper {
+    width: calc(33.33% - 10px); /* Adjust based on desired layout */
+  }
+  
+  .captured-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  

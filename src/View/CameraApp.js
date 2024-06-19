@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { Link  } from 'react-router-dom';
 import CameraComponent from '../Component/CameraComponent';
-
+import './CameraApp.css';
 
 
 function CameraApp() {
@@ -18,7 +18,7 @@ function CameraApp() {
     
   }, [images]);
   return (
-    <div>
+    <div className="camera-app-container">
       <h1>Camera App</h1>
       <CameraComponent onCapture={handleCapture} />
       <div className="image-container">
