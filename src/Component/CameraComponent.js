@@ -5,6 +5,7 @@ import './CameraComponent.css'; // Import CSS for styling
 const CameraComponent = ({ onCapture }) => {
   const webcamRef = useRef(null);
   const [cameraOpen, setCameraOpen] = useState(true);
+  const [facingMode, setFacingMode] = useState('user'); // 'user' or 'environment'
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -16,6 +17,11 @@ const CameraComponent = ({ onCapture }) => {
     setCameraOpen(true);
   };
 
+  const toggleFacingMode = () => {
+    const newFacingMode = facingMode === 'user' ? 'environment' : 'user';
+    setFacingMode(newFacingMode);
+  };
+
   return (
     <div className="camera-component">
       {cameraOpen ? (
@@ -25,13 +31,16 @@ const CameraComponent = ({ onCapture }) => {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             className="webcam"
+            videoConstraints={{ facingMode: facingMode }}
           />
-          <div>
-          <button className="capture-button" onClick={capture}>
-            Capture
-          </button>
+          <div className='capture-button-div'>
+            <button onClick={capture}>
+              Capture
+            </button>
+            <button className="toggle-camera-button" onClick={toggleFacingMode}>
+              Switch Camera
+            </button>
           </div>
-          
         </>
       ) : (
         <>
