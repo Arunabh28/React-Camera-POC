@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link,useNavigate  } from 'react-router-dom';
 import CameraComponent from '../Component/CameraComponent';
-import './CameraApp.css';
-import ImageThumbnail from '../Component/ImageThumbnail';
-import ThumbnailComponent from '../Component/ThumbnailComponent';
+import '../style/CameraApp.css';
 import { useImages } from '../Component/ImagesContext';
 
 
@@ -16,9 +14,7 @@ function CameraApp() {
     navigate('/CaptureImageView');
   };
 
-  const handleDelete = (index) => {
-    setImages(prevImages => prevImages.filter((_, i) => i !== index));
-  };
+ 
 
   useEffect(() => {
     console.log("Number of Images:", images.length);
@@ -29,14 +25,7 @@ function CameraApp() {
       
       
       <CameraComponent className="camera-container" onCapture={handleCapture} />
-      {/*<div className="image-container">
-        {images.length > 0 && (
-          images.map((image, index) => (
-            <ImageThumbnail key={index} image={image} index={index} onDelete={handleDelete} />
-          <ThumbnailComponent key={index} image={image} index={index} />
-          ))
-        )}
-      </div>*/}
+      
       {images.length===0 &&(
         <div className='footer'>&nbsp;</div>
       )}
