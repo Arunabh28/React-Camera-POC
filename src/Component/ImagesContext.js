@@ -17,5 +17,6 @@ export const useImages = () => {
   if (!context) {
     throw new Error('useImages must be used within an ImagesProvider');
   }
+  
   return context;
 };

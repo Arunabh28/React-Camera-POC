@@ -1,8 +1,37 @@
 .camera-app-container {
-    max-width: 800px; /* Example maximum width */
-    margin: 0 auto; /* Center align the container */
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes at least full viewport height */
+  max-height: 100vh;
+}
+.header {
+  /* Sticky footer styles */
+  position: sticky;
+  top: 0;
+  background-color: #333; /* Example background color */
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  max-height: 10vh;
+}
+.header h1{
+color: #fff;
+}
+.camera-container {
+  display: flex;
+  justify-content: center; /* Center align horizontally */
+  width:100vw;
+  border: 5px solid #333;
+ 
+}
+
+@media (max-width: 768px) {
+  /* Adjust for smaller screens */
+  .camera-container {
+    margin: 0; /* Remove margins for smaller screens */
+    width: 100%; /* Take full width on smaller screens */
   }
+}
   
   .image-container {
     display: flex;
@@ -24,4 +53,26 @@
     padding: 10px 20px;
     font-size: 16px;
   }
+  .footer {
+    /* Sticky footer styles */
+    position: sticky;
+    bottom: 0;
+    background-color: #333; /* Example background color */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 10vh;
+    max-height: 10vh;
+  }
   
+  .footer button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #007bff; /* Example button background color */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .footer button:hover {
+    background-color: #0056b3; /* Example button hover color */
+  }

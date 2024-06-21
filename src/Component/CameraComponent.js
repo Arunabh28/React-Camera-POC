@@ -10,7 +10,7 @@ const CameraComponent = ({ onCapture }) => {
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     onCapture(imageSrc);
-    setCameraOpen(false);
+    //setCameraOpen(false);
   };
 
   const restartCamera = () => {
@@ -23,7 +23,7 @@ const CameraComponent = ({ onCapture }) => {
   };
 
   return (
-    <div className="camera-component">
+    <div className="webcam-wrapper">
       {cameraOpen ? (
         <>
           <Webcam
@@ -32,7 +32,7 @@ const CameraComponent = ({ onCapture }) => {
             screenshotFormat="image/jpeg"
             className="webcam"
             videoConstraints={{ facingMode: facingMode }}
-          />
+          ></Webcam>
           <div className='capture-button-div'>
             <button onClick={capture}>
               Capture
