@@ -1,16 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const ThumbnailComponent = ({ image, index }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    // Redirect to ImageViewer route with image index as parameter
-    navigate(`/image-viewer/${index}`);
-  };
-
+const ThumbnailComponent = ({ image, index,isSelected, handleClick }) => {
   return (
-    <div style={{ margin: '10px', cursor: 'pointer' }} onClick={handleClick}>
+    <div style={{ margin: '10px', cursor: 'pointer',border: isSelected ? '2px solid red' : '2px solid transparent' }} onClick={() => handleClick(index)}>
       <img src={image} alt={`Thumbnail ${index}`} style={{ width: '100px', height: 'auto' }} />
     </div>
   );

@@ -10,16 +10,16 @@ const CameraComponent = ({ onCapture }) => {
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     onCapture(imageSrc);
-    //setCameraOpen(false);
+    setCameraOpen(false); // Close camera view after capturing
   };
 
   const restartCamera = () => {
-    setCameraOpen(true);
+    setCameraOpen(true); // Reopen camera view
   };
 
   const toggleFacingMode = () => {
     const newFacingMode = facingMode === 'user' ? 'environment' : 'user';
-    setFacingMode(newFacingMode);
+    setFacingMode(newFacingMode); // Toggle between 'user' and 'environment' facing mode
   };
 
   return (
@@ -32,13 +32,14 @@ const CameraComponent = ({ onCapture }) => {
             screenshotFormat="image/jpeg"
             className="webcam"
             videoConstraints={{ facingMode: facingMode }}
-          ></Webcam>
+          />
           <div className='capture-button-div'>
-            <button onClick={capture}>
+            <button className="capture-button" onClick={capture}>
               Capture
             </button>
             <button className="toggle-camera-button" onClick={toggleFacingMode}>
-              Switch Camera
+            &#x21BB;
+            <small>Toggle</small>
             </button>
           </div>
         </>

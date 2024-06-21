@@ -21,7 +21,7 @@ const CaptureImageView = () => {
   return (
     <div>
       <img src={images[images.length - 1]} alt="Captured" style={{ maxWidth: '100%', maxHeight: '70vh' }} />
-      <div>
+      <div style={{paddingLeft:'30%'}}>
         <button onClick={handleRetake}>Retake</button>
         <button onClick={handleAccept}>Accept</button>
       </div>

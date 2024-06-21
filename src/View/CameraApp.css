@@ -1,21 +1,7 @@
 .camera-app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the container takes at least full viewport height */
-  max-height: 100vh;
-}
-.header {
-  /* Sticky footer styles */
-  position: sticky;
-  top: 0;
-  background-color: #333; /* Example background color */
-  padding: 5px;
-  display: flex;
-  justify-content: space-between;
-  max-height: 10vh;
-}
-.header h1{
-color: #fff;
+  height:100%
 }
 .camera-container {
   display: flex;
@@ -61,8 +47,8 @@ color: #fff;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    min-height: 10vh;
-    max-height: 10vh;
+    height: 100%;
+    max-height: 5%;
   }
   
   .footer button {
@@ -75,4 +61,44 @@ color: #fff;
   
   .footer button:hover {
     background-color: #0056b3; /* Example button hover color */
+  }
+  .view-images-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+  }
+  
+  .image-count {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: red; /* Choose your desired color */
+    color: white;
+    width: 25px; /* Adjust size as needed */
+    height: 25px; /* Adjust size as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  .view-pdf-button {
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
   }
