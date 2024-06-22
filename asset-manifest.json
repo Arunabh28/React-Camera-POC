@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/canvasPOC/static/css/main.357ed25a.css",
-    "main.js": "/canvasPOC/static/js/main.41259b9e.js",
+    "main.css": "/canvasPOC/static/css/main.c7dc6fd5.css",
+    "main.js": "/canvasPOC/static/js/main.b9279468.js",
     "static/js/453.1ebecf48.chunk.js": "/canvasPOC/static/js/453.1ebecf48.chunk.js",
     "index.html": "/canvasPOC/index.html",
-    "main.357ed25a.css.map": "/canvasPOC/static/css/main.357ed25a.css.map",
-    "main.41259b9e.js.map": "/canvasPOC/static/js/main.41259b9e.js.map",
+    "main.c7dc6fd5.css.map": "/canvasPOC/static/css/main.c7dc6fd5.css.map",
+    "main.b9279468.js.map": "/canvasPOC/static/js/main.b9279468.js.map",
     "453.1ebecf48.chunk.js.map": "/canvasPOC/static/js/453.1ebecf48.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.357ed25a.css",
-    "static/js/main.41259b9e.js"
+    "static/css/main.c7dc6fd5.css",
+    "static/js/main.b9279468.js"
   ]
 }
