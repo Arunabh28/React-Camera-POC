@@ -15,7 +15,7 @@ function Card({ to, title }) {
         padding: '20px',
         border: '1px solid black',
         borderRadius: '5px',
-        width: '200px',
+        maxWidth: '40%',
         cursor: 'pointer', // Change cursor to indicate it's clickable
       }}
       onClick={handleClick} // Handle click event on the whole card
