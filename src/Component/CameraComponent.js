@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Webcam from 'react-webcam';
-
+import '../style/CameraComponent.css'; // Import your CSS file
 
 const CameraComponent = ({ onCapture }) => {
   const webcamRef = useRef(null);
@@ -8,24 +8,41 @@ const CameraComponent = ({ onCapture }) => {
   const [facingMode, setFacingMode] = useState('user'); // 'user' or 'environment'
   const [torchOn, setTorchOn] = useState(false);
   const [supportsTorch, setSupportsTorch] = useState(false);
+  const [zoom, setZoom] = useState(1); // Default zoom level
+  const [supportsZoom, setSupportsZoom] = useState(false);
 
   useEffect(() => {
-    // Check if the camera supports torch
-    const checkTorchSupport = async () => {
+    // Check if the camera supports torch and zoom
+    const checkCapabilities = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         const track = stream.getVideoTracks()[0];
         const capabilities = track.getCapabilities();
 
         setSupportsTorch(!!capabilities.torch);
+        setSupportsZoom(!!capabilities.zoom);
+
         track.stop(); // Stop the track to release the camera
       } catch (error) {
-        console.error('Error checking torch support:', error);
+        console.error('Error checking camera capabilities:', error);
       }
     };
 
-    checkTorchSupport();
+    checkCapabilities();
   }, []);
+
+  const applyConstraints = async (constraints) => {
+    if (webcamRef.current) {
+      const videoTrack = webcamRef.current.stream.getVideoTracks()[0];
+      if (videoTrack) {
+        try {
+          await videoTrack.applyConstraints(constraints);
+        } catch (error) {
+          console.error('Error applying constraints:', error);
+        }
+      }
+    }
+  };
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -55,6 +72,30 @@ const CameraComponent = ({ onCapture }) => {
     }
   };
 
+  const zoomIn = () => {
+    if (supportsZoom) {
+      setZoom((prevZoom) => {
+        const newZoom = Math.min(prevZoom + 0.1, 3); // Max zoom level
+        applyConstraints({ advanced: [{ zoom: newZoom }] });
+        return newZoom;
+      });
+    } else {
+      console.warn('Zoom is not supported on this device.');
+    }
+  };
+
+  const zoomOut = () => {
+    if (supportsZoom) {
+      setZoom((prevZoom) => {
+        const newZoom = Math.max(prevZoom - 0.1, 1); // Min zoom level
+        applyConstraints({ advanced: [{ zoom: newZoom }] });
+        return newZoom;
+      });
+    } else {
+      console.warn('Zoom is not supported on this device.');
+    }
+  };
+
   return (
     <div className="webcam-wrapper">
       {cameraOpen ? (
@@ -66,19 +107,37 @@ const CameraComponent = ({ onCapture }) => {
             className="webcam"
             videoConstraints={{ facingMode: facingMode }}
           />
-          <div className='capture-button-div'>
+          <div className="controls">
             <button className="capture-button" onClick={capture}>
-              Capture
+              <i className="fas fa-camera"></i>
             </button>
             <button className="toggle-camera-button" onClick={toggleFacingMode}>
-              &#x21BB;
-              <small>Toggle</small>
+              <i className="fas fa-sync-alt"></i>
             </button>
-            {supportsTorch && (
+            {supportsTorch ? (
               <button className="torch-button" onClick={toggleTorch}>
-                
-                <small>{torchOn ? 'Turn Off' : 'Turn On'}</small>
+                <i className={`fas fa-lightbulb ${torchOn ? 'on' : 'off'}`}></i>
               </button>
+            ) : (
+              <div className="error-message">
+                <i className="fas fa-exclamation-triangle"></i>
+                <p>Torch</p>
+              </div>
+            )}
+            {supportsZoom ? (
+              <>
+                <button className="zoom-button" onClick={zoomOut}>
+                  <i className="fas fa-search-minus"></i>
+                </button>
+                <button className="zoom-button" onClick={zoomIn}>
+                  <i className="fas fa-search-plus"></i>
+                </button>
+              </>
+            ) : (
+              <div className="error-message">
+                <i className="fas fa-exclamation-triangle"></i>
+                <p>Zoom</p>
+              </div>
             )}
           </div>
         </>
