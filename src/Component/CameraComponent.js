@@ -15,7 +15,7 @@ const CameraComponent = ({ onCapture }) => {
     // Check if the camera supports torch and zoom
     const checkCapabilities = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode } });
         const track = stream.getVideoTracks()[0];
         const capabilities = track.getCapabilities();
 
@@ -29,7 +29,7 @@ const CameraComponent = ({ onCapture }) => {
     };
 
     checkCapabilities();
-  }, []);
+  }, [facingMode]); // Re-run this effect when facingMode changes
 
   const applyConstraints = async (constraints) => {
     if (webcamRef.current) {

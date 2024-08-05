@@ -50,9 +50,15 @@
   color: gray;
 }
 
-.torch-not-supported,
-.zoom-not-supported {
+.error-message {
+  display: flex;
+  align-items: center;
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.error-message i {
+  font-size: 20px;
+  margin-right: 5px;
 }
